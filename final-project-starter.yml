@@ -220,8 +220,8 @@ Resources:
        VpcId: !Ref MainVPC
        SecurityGroupIngress:
        - IpProtocol: tcp
-         FromPort: 8080
-         ToPort: 8080
+         FromPort: 80
+         ToPort: 80
          CidrIp: 0.0.0.0/0
        - IpProtocol: tcp
          FromPort: 22
@@ -245,7 +245,6 @@ Resources:
             sudo echo it works! Udagram, Udacity > /var/www/html/index.html
             sudo systemctl start httpd          
         ImageId: ami-033b95fb8079dc481
-        KeyName: !Ref SecretKey
         # When you don't use the default VPC you should this property instaed of securityGroups
         SecurityGroupIds:
           - !GetAtt WebServerSecGroup.GroupId
